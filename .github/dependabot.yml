@@ -11,6 +11,14 @@ updates:
     schedule:
       interval: 'monthly'
 
+  # Maintain dependencies for TypeScript and JavaScript
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
 
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "npm"
@@ -33,15 +41,6 @@ updates:
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "npm"
     directory: "/server"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "04:00"
-      timezone: "Canada/Pacific"
-
-  # Maintain dependencies for TypeScript and JavaScript
-  - package-ecosystem: "npm"
-    directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
