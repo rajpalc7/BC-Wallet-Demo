@@ -42,6 +42,15 @@ updates:
       timezone: "Canada/Pacific"
 
   # Maintain dependencies for TypeScript and JavaScript
+  - package-ecosystem: "npm"
+    directory: "/server/src"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "04:00"
+      timezone: "Canada/Pacific"
+
+  # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "docker"
     directory: "/client"
     schedule:
