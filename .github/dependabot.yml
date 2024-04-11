@@ -13,6 +13,9 @@ updates:
       day: "monday"
       time: "04:00"
       timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "npm"
@@ -22,6 +25,9 @@ updates:
       day: "monday"
       time: "04:00"
       timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "npm"
@@ -31,6 +37,9 @@ updates:
       day: "monday"
       time: "04:00"
       timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "npm"
@@ -40,6 +49,9 @@ updates:
       day: "monday"
       time: "04:00"
       timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "npm"
@@ -49,6 +61,9 @@ updates:
       day: "monday"
       time: "04:00"
       timezone: "Canada/Pacific"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "docker"
