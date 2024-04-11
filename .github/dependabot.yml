@@ -63,7 +63,7 @@ updates:
 
   # Maintain dependencies for TypeScript and JavaScript
   - package-ecosystem: "npm"
-    directory: "server/src/controllers"
+    directory: "/server/src/controllers"
     schedule:
       interval: "weekly"
       day: "monday"
