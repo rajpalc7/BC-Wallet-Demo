@@ -65,7 +65,7 @@ updates:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
 
-  # Maintain dependencies for TypeScript and JavaScript
+  # Maintain dependencies for docker
   - package-ecosystem: "docker"
     directory: "/client"
     schedule:
@@ -74,7 +74,7 @@ updates:
       time: "04:00"
       timezone: "Canada/Pacific"
 
-  # Maintain dependencies for TypeScript and JavaScript
+  # Maintain dependencies for docker
   - package-ecosystem: "docker"
     directory: "/server"
     schedule:
