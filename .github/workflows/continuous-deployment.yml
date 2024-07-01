@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Libindy
         uses: ./.github/actions/setup-libindy
@@ -35,7 +35,7 @@ jobs:
         shell: bash
 
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v6
         with:
           record: true
           browser: chrome
@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Libindy
         uses: ./.github/actions/setup-libindy
@@ -73,7 +73,7 @@ jobs:
       - run: yarn build
 
       - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -81,12 +81,12 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ env.SERVER }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@15560696de535e4014efeff63c48f16952e52dd1
         with:
           context: ./server
           push: true
@@ -107,7 +107,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Libindy
         uses: ./.github/actions/setup-libindy
@@ -118,7 +118,7 @@ jobs:
       - run: REACT_APP_INSIGHTS_PROJECT_ID=${{ secrets.REACT_APP_INSIGHTS_PROJECT_ID }} REACT_APP_HOST_BACKEND=${{ secrets.REACT_APP_HOST_BACKEND }} yarn build
 
       - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -126,12 +126,12 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@8e5442c4ef9f78752691e2d8f8d19755c6f78e81
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ env.CLIENT }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@15560696de535e4014efeff63c48f16952e52dd1
         with:
           context: ./client
           push: true
@@ -145,10 +145,10 @@ jobs:
       - build-and-push-image-server
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Copy stack file to remote
-        uses: garygrossgarten/github-action-scp@v0.7.3
+        uses: garygrossgarten/github-action-scp@v0.8.0
         with:
           local: docker-compose.yml
           remote: animo-demo/docker-compose.yml
@@ -157,7 +157,7 @@ jobs:
           privateKey: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
 
       - name: Deploy to Docker Swarm via SSH action
-        uses: appleboy/ssh-action@v0.1.4
+        uses: appleboy/ssh-action@v1.0.3
         env:
           AGENT_PUBLIC_DID_SEED: ${{ secrets.AGENT_PUBLIC_DID_SEED }}
           AGENT_WALLET_KEY: ${{ secrets.AGENT_WALLET_KEY }}
